@@ -19,14 +19,16 @@ module test_traffic_controller;
   $dumpfile("dump.vcd");
   $dumpvars(1);
   #1 en<=1'b0;    
-     cur_state <= 2'b00;
+     cur_state <= 2'b01;
   #5 res_n <= 1'b0;
   #1 en <= 1'b1;
   #1 res_n <= 1'b1;
   //#5 q<=1'b0;
-  #15 cur_state <= 2'b01;
+  //#15 cur_state <= 2'b01;
   //#10 cur_state <= 2'b10;
   //#6  cur_state <= 2'b00;
+  #15 res_n <= 1'b0;
+  #5 en <= 1'b0;
   #40  $finish;
   end
 endmodule
