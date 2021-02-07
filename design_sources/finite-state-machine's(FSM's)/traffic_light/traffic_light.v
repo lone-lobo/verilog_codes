@@ -1,21 +1,17 @@
-module traffic_controller(res_n,cur_state,next_state,clk,en,o);
+module traffic_controller(res_n,next_state,clk,en,o);
   input clk;
-  input [1:0]cur_state;
   input res_n;
   input en;
-  output reg [1:0]next_state=2'b01;
+  output reg [1:0]next_state=2'b00;
   output reg [3:0]o;
   parameter s_0 = 2'b00;
   parameter s_1 = 2'b01;
   parameter s_2 = 2'b10;
   parameter s_3 = 2'b11;
-  //next_state <= cur_state;
-  always @(posedge clk or negedge res_n or en or cur_state) begin
+  always @(posedge clk or negedge res_n or en ) begin
     if(res_n == 1'b0) o<=4'b1010;
     else begin
-      //next_state <= cur_state;
       if(res_n == 1'b1 && en == 1'b1) begin
-        //next_state <= cur_state;
         case(next_state)
           s_0:begin
             o<=4'b1000;
