@@ -1,3 +1,5 @@
+// Code your testbench here
+// or browse Examples
 module test_traffic_controller;
   reg res_n;
   reg clk;
@@ -25,7 +27,7 @@ module test_traffic_controller;
   #10  in = 2'b00;
   #2 en = 1'b1;
   #2 res_n = 1'b1;
-  #18in = 2'b01;
+  #18in = 2'b10;
   #20 in = 2'b10;
   #2 in = 2'b01;
   #20 in = 2'b00;
