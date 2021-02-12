@@ -1,5 +1,3 @@
-// Code your testbench here
-// or browse Examples
 module test_traffic_controller;
   reg res_n;
   reg clk;
