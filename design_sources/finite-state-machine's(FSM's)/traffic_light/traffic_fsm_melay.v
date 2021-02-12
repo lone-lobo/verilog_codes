@@ -30,7 +30,7 @@ module traffic_controller_melay(res_n,in,clk,en,o);
             end
             else if(in == s_2) begin
               o = 4'b010;
-              #2 next_state = s_2;
+               next_state = s_2;
             end
             else begin
     //          if(count == 4'b1010) begin
@@ -43,7 +43,7 @@ module traffic_controller_melay(res_n,in,clk,en,o);
       //         count = count+1;
       //         $display ("%t s_0->%0h",$time,count);
       //      end
-              while( count <= 10) begin
+              while( count < 10) begin
                 o = 4'b1000;
                 count = @(clk)count + 1;
                 $display("%t %d %d",$time,count,o);
@@ -60,7 +60,7 @@ module traffic_controller_melay(res_n,in,clk,en,o);
               o = 4'b0010;
                next_state = s_2;
             end
-            else if(in == s_0) begin
+            else if(in == s_0 && o != 4'b0100) begin
               o = 4'b1000;
               next_state = s_0;
             end
@@ -88,11 +88,11 @@ module traffic_controller_melay(res_n,in,clk,en,o);
           end
           s_2: begin
             $display("%t s2_cur->%b s2_next->%b",$time,cur_state,next_state);
-           if(in == s_0) begin
+            if(in == s_0 && o != 4'b0010) begin
               o = 4'b1000;
              next_state = s_0;
             end
-            else if(in == s_1) begin
+            else if(in == s_1 && o != 4'b0010) begin
               o = 4'b0100;
               next_state = s_1;
             end
@@ -108,7 +108,7 @@ module traffic_controller_melay(res_n,in,clk,en,o);
      //          $display ("%t s_2->%0h",$time,count);
      //       end
               while( count <  5) begin
-                o = 4'b0100;
+                o = 4'b0010;
                 count = @(posedge clk)count + 1;
                 $display("%t %d %d",$time,count,o);
               end
