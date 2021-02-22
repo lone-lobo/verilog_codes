@@ -3,7 +3,8 @@ input [1:0] mul_1;
 input [1:0] mul_2;
 input clk;
 input reset;
-//input en;
+                                                                                        // multiplier implemented as sequential circuit without half adder instantiation
+  
 output reg [4:0] product;
   always@(posedge clk or reset or mul_1 or mul_2) begin
     if( reset == 1'b1) begin
