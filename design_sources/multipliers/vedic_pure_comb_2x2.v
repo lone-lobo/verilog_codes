@@ -10,7 +10,7 @@ module vedic_2x2(mul_1,mul_2,product);
   input [1:0]mul_2;
   output  [3:0] product;
   wire [3:0] temp;
-  
+                                                                                    // IMPLEMENTED AS A PURE COMBINATIONAL CIRCUIT
   
   half_add ha_1 (temp[0],temp[1],product[1],temp[2]);
   
