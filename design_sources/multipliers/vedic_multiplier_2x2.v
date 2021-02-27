@@ -6,7 +6,7 @@ input reset;
                                                                                         // multiplier implemented as sequential circuit without half adder instantiation
   
 output reg [4:0] product;
-  always@(posedge clk or reset or mul_1 or mul_2) begin
+  always@(posedge clk or reset or mul_1 or mul_2) begin                                 //IMPLEMENTED AS A SEQUENTIAL JUST FOR FUN
     if( reset == 1'b1) begin
       product = 4'b0000;
       end
