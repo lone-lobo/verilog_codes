@@ -6,11 +6,11 @@ module test_bench_vedic_2x2;
   wire [4:0] product;
   
   initial begin
-    mul_1=2'b00;
-    mul_2=2'b00;
-    clk=1'b1;
+    mul_1 <= 2'b00;                                                                     // AVOID USING NON BLOCKING STATEMENTS IN COMBINATIONAL CIRCUITS
+    mul_2 <= 2'b00;
+    clk <= 1'b1;
   end
-  always #1 clk =~clk;
+  always #1 clk <= ~clk;                                                                //clock makes the combinational circuit to sequential 
   
   vedic_2x2 vm1(.mul_1(mul_1),.mul_2(mul_2),.product(product),.clk(clk),.reset(reset));
   
